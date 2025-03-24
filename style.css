@@ -6,36 +6,38 @@ body {
     justify-content: center;
     min-height: 100vh;
     margin: 0;
-    padding: 20px;
+    padding: 10px;
     background-color: #f0f0f0;
 }
 
 h1 {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     color: #333;
+    font-size: 28px;
 }
 
 .game-info {
     margin-bottom: 15px;
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .board {
     display: grid;
-    grid-template-columns: repeat(8, 60px);
-    grid-template-rows: repeat(8, 60px);
-    border: 5px solid #333;
+    grid-template-columns: repeat(8, 55px);
+    grid-template-rows: repeat(8, 55px);
+    border: 4px solid #333;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-    margin: 20px 0;
+    margin: 15px 0;
 }
 
 .cell {
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 40px;
+    font-size: 35px;
     cursor: pointer;
     transition: background-color 0.2s;
     position: relative;
@@ -70,6 +72,17 @@ h1 {
 .piece {
     z-index: 2;
     cursor: grab;
+    font-size: 38px;
+}
+
+.white-piece {
+    color: white;
+    text-shadow: 0px 0px 1px #000, 0px 0px 2px #000;
+}
+
+.black-piece {
+    color: #444444;
+    text-shadow: 0px 0px 1px #000, 0px 0px 2px #000;
 }
 
 .coord {
@@ -95,13 +108,14 @@ h1 {
 }
 
 button {
-    padding: 8px 16px;
+    padding: 10px 20px;
     background-color: #4a90e2;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    font-weight: bold;
 }
 
 button:hover {
@@ -111,7 +125,7 @@ button:hover {
 .captured {
     display: flex;
     gap: 5px;
-    margin: 10px 0;
+    margin: 8px 0;
     align-items: center;
 }
 
@@ -123,6 +137,7 @@ button:hover {
     border-radius: 4px;
     min-width: 200px;
     min-height: 30px;
+    align-items: center;
 }
 
 .capture-container {
@@ -132,15 +147,78 @@ button:hover {
     max-width: 480px;
 }
 
+/* Styles spécifiques pour les pièces d'échecs */
+.pawn.white-piece {
+    content: "♙";
+}
+
+.pawn.black-piece {
+    content: "♟";
+}
+
+.rook.white-piece {
+    content: "♖";
+}
+
+.rook.black-piece {
+    content: "♜";
+}
+
+.knight.white-piece {
+    content: "♘";
+}
+
+.knight.black-piece {
+    content: "♞";
+}
+
+.bishop.white-piece {
+    content: "♗";
+}
+
+.bishop.black-piece {
+    content: "♝";
+}
+
+.queen.white-piece {
+    content: "♕";
+}
+
+.queen.black-piece {
+    content: "♛";
+}
+
+.king.white-piece {
+    content: "♔";
+}
+
+.king.black-piece {
+    content: "♚";
+}
+
 @media (max-width: 600px) {
     .board {
-        grid-template-columns: repeat(8, 40px);
-        grid-template-rows: repeat(8, 40px);
+        grid-template-columns: repeat(8, 42px);
+        grid-template-rows: repeat(8, 42px);
     }
     
     .cell {
-        width: 40px;
-        height: 40px;
-        font-size: 30px;
+        width: 42px;
+        height: 42px;
+        font-size: 28px;
+    }
+    
+    .game-info {
+        font-size: 16px;
+    }
+    
+    h1 {
+        font-size: 22px;
+        margin-bottom: 5px;
+    }
+    
+    .piece {
+        width: 30px;
+        height: 30px;
     }
 }

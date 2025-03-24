@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
         ['', '', '', '', '', '', '', ''],
         ['', '', '', '', '', '', '', ''],
         ['', '', '', '', '', '', '', ''],
-        ['♙', '♙', '♙', '♙', '♙', '♙', '♙', '♙'],
-        ['♖', '♘', '♗', '♕', '♔', '♗', '♘', '♖']
+        ['♟', '♟', '♟', '♟', '♟', '♟', '♟', '♟'],
+        ['♜', '♞', '♝', '♛', '♚', '♝', '♞', '♜']
     ];
     
     // État du jeu
@@ -68,7 +68,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (piece) {
                     const pieceElement = document.createElement('div');
                     pieceElement.classList.add('piece');
+                    
+                    // Ajouter la classe de couleur appropriée
+                    const pieceColor = getPieceColor(piece);
+                    if (pieceColor === 'white') {
+                        pieceElement.classList.add('white-piece');
+                    } else {
+                        pieceElement.classList.add('black-piece');
+                    }
+                    
+                    // Ajouter le type de pièce comme classe et comme contenu
+                    const pieceType = getPieceType(piece);
+                    pieceElement.classList.add(pieceType);
                     pieceElement.textContent = piece;
+                    
                     cell.appendChild(pieceElement);
                 }
                 
@@ -666,12 +679,16 @@ document.addEventListener('DOMContentLoaded', () => {
         
         capturedPieces.white.forEach(piece => {
             const pieceElement = document.createElement('div');
+            pieceElement.classList.add('piece', 'white-piece');
+            pieceElement.classList.add(getPieceType(piece));
             pieceElement.textContent = piece;
             capturedWhiteContainer.appendChild(pieceElement);
         });
         
         capturedPieces.black.forEach(piece => {
             const pieceElement = document.createElement('div');
+            pieceElement.classList.add('piece', 'black-piece');
+            pieceElement.classList.add(getPieceType(piece));
             pieceElement.textContent = piece;
             capturedBlackContainer.appendChild(pieceElement);
         });
