@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu d'Échecs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Jeu d'Échecs</h1>
+    <div class="game-info">Tour des : <span id="current-turn">Blancs</span></div>
+    
+    <div class="capture-container">
+        <div class="captured">
+            <div>Pièces noires capturées:</div>
+            <div class="captured-black" id="captured-black"></div>
+        </div>
+    </div>
+    
+    <div class="board" id="board"></div>
+    
+    <div class="capture-container">
+        <div class="captured">
+            <div>Pièces blanches capturées:</div>
+            <div class="captured-white" id="captured-white"></div>
+        </div>
+    </div>
+    
+    <div class="controls">
+        <button id="reset-btn">Nouvelle Partie</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

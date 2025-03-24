@@ -1,0 +1,146 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.game-info {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(8, 60px);
+    grid-template-rows: repeat(8, 60px);
+    border: 5px solid #333;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    margin: 20px 0;
+}
+
+.cell {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    position: relative;
+}
+
+.cell.white {
+    background-color: #f0d9b5;
+}
+
+.cell.black {
+    background-color: #b58863;
+}
+
+.cell.selected {
+    background-color: #7aafff;
+}
+
+.cell.valid-move {
+    position: relative;
+}
+
+.cell.valid-move::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(0, 128, 0, 0.5);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.piece {
+    z-index: 2;
+    cursor: grab;
+}
+
+.coord {
+    position: absolute;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.coord.file {
+    bottom: 2px;
+    right: 2px;
+}
+
+.coord.rank {
+    top: 2px;
+    left: 2px;
+}
+
+.controls {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #357abf;
+}
+
+.captured {
+    display: flex;
+    gap: 5px;
+    margin: 10px 0;
+    align-items: center;
+}
+
+.captured-white, .captured-black {
+    display: flex;
+    gap: 5px;
+    background-color: #e6e6e6;
+    padding: 5px;
+    border-radius: 4px;
+    min-width: 200px;
+    min-height: 30px;
+}
+
+.capture-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 480px;
+}
+
+@media (max-width: 600px) {
+    .board {
+        grid-template-columns: repeat(8, 40px);
+        grid-template-rows: repeat(8, 40px);
+    }
+    
+    .cell {
+        width: 40px;
+        height: 40px;
+        font-size: 30px;
+    }
+}
